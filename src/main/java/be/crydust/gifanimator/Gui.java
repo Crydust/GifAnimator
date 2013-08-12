@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package be.crydust.gifanimator;
 
 import javax.swing.UIManager;
@@ -12,11 +8,16 @@ import javax.swing.UIManager;
  */
 public class Gui extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Gui
-     */
     public Gui() {
         initComponents();
+    }
+
+    public Gui(final ImageFrame[] imageFrames) {
+        this();
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            public int getSize() { return imageFrames.length; }
+            public Object getElementAt(int i) { return imageFrames[i]; }
+        });
     }
 
     /**
@@ -239,7 +240,7 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Options", jPanel2);
@@ -335,7 +336,7 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Animation", jPanel3);
@@ -348,7 +349,7 @@ public class Gui extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 558, Short.MAX_VALUE)
+            .addGap(0, 329, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Image", jPanel4);

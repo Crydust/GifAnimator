@@ -19,12 +19,11 @@ import org.w3c.dom.NodeList;
  *
  * @author Alex Orzechowski
  */
-public  final class GifReader {
+public final class GifReader {
 
     private GifReader() {
     }
 
-    
     public static ImageFrame[] readGif(InputStream stream) throws IOException {
         ArrayList<ImageFrame> frames = new ArrayList<ImageFrame>(2);
 
