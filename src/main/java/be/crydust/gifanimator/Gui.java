@@ -1,6 +1,10 @@
 package be.crydust.gifanimator;
 
 import javax.swing.UIManager;
+import javax.swing.Action;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -8,6 +12,46 @@ import javax.swing.UIManager;
  */
 public class Gui extends javax.swing.JFrame {
 
+    private static ImageIcon createNavigationIcon(String contextDir, String imageName) {
+        String imgLocation = String.format("/icons/16x16/%s/%s.png", contextDir, imageName);
+        //String imgLocation = String.format("/icons/32x32/%s/%s.png", contextDir, imageName);
+        //String imgLocation = String.format("/icons/scalable/%s/%s.svg", contextDir, imageName);
+        java.net.URL imageURL = Gui.class.getResource(imgLocation);
+
+        if (imageURL == null) {
+            System.err.println("Resource not found: " + imgLocation);
+            return null;
+        } else {
+            return new ImageIcon(imageURL);
+        }
+    }
+    
+    Action newAction = new AbstractAction("New", createNavigationIcon("actions", "document-new")) {
+        public void actionPerformed(ActionEvent e) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+    };
+    // new:New:actions/document-new
+    // open:Open:actions/document-open
+    // save:Save:actions/document-save
+    // insert:Insert:actions/list-add
+    // saveAs:Save As:actions/document-save-as
+    // --
+    // cut:Cut:actions/edit-cut.png
+    // copy:Copy:actions/edit-copy.png
+    // paste:Paste:actions/edit-paste.png
+    // delete:Delete:actions/edit-delete.png
+    // --
+    // selectAll
+    // --
+    // moveUp
+    // moveDown
+    // --
+    // preview
+    // help
+    
+    
+    
     public Gui() {
         initComponents();
     }
@@ -83,7 +127,7 @@ public class Gui extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jButton1.setText("New");
+        jButton1.setAction(newAction);
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -304,7 +348,7 @@ public class Gui extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(643, Short.MAX_VALUE))
+                .addContainerGap(683, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +380,7 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Animation", jPanel3);

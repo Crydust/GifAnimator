@@ -20,7 +20,7 @@ public class App {
             logger.log(Level.SEVERE, null, ex);
         }
 
-        final ImageFrame[] imageFrames = GifReader.readGif(App.class.getResourceAsStream("/Rotating_earth_(large).gif"));
+        final ImageFrame[] imageFrames = GifReader.readGif(App.class.getResourceAsStream("/examples/Rotating_earth_(large).gif"));
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
